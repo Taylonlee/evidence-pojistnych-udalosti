@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %} Přidat nové pojištění {% endblock %}
+{% block content %}
+<div style="margin-top:80px;">
+
+<h1>Přidat pojištění k {{ pojistenec.jmeno }} {{ pojistenec.prijmeni }}</h1>
+
+</div>
+<form method="POST" action="{{ url_for('views.pridat_pojisteni', id=pojistenec.id) }}" style="margin-top:50px;">
+    <div class="form-group">
+        <label for="nazev">Pojištění</label>
+        <select class="form-control bg-light text-dark" name="nazev" id="nazev">
+            <option value="Pojištění majetku">Pojištění majetku</option>
+            <option value="Povinné ručení">Povinné ručení</option>
+            <option value="Havarijní pojištění">Havarijní pojištění</option>
+            <option value="Cestovní pojištění">Cestovní pojištění</option>
+            <option value="Životní pojištění">Životní pojištění</option>
+        </select>
+
+    </div>
+        <div class="form-group">
+        <label>Částka</label>
+        <input type="text"
+               name="castka"
+               class="form-control"
+               placeholder="10000000"
+        />
+        </div>
+
+        <div class="form-group">
+        <label>Předmět pojištění</label>
+        <input type="text"
+               name="predmet"
+               class="form-control"
+               placeholder="Byt"
+        />
+        </div>
+
+        <div class="form-group">
+        <label>Platnost od</label>
+        <input type="date"
+               name="platnost_od"
+               class="form-control"
+
+        />
+        </div>
+
+        <div class="form-group">
+        <label>Platnost do</label>
+        <input type="date"
+               name="platnost_do"
+               class="form-control"
+
+        />
+        </div>
+    <div style="text-align:center;">
+    <button type="submit" class="btn btn-primary">Uložit</button>
+    </div>
+
+</form>
+{% endblock %}

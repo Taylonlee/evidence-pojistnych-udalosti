@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %} Registrace {% endblock %}
+{% block content %}
+<form method="POST">
+    <h3 align="center">Registrace</h3>
+     <div class="form-group">
+         <label for="email">Email</label>
+         <input type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Zadejte email"
+         />
+     </div>
+    <div class="form-group">
+         <label for="jmeno">Křestní jméno</label>
+         <input type="text"
+                class="form-control"
+                id="jmeno"
+                name="jmeno"
+                placeholder="Zadejte křestní jméno"
+         />
+     </div>
+    <div class="form-group">
+         <label for="prijmeni">Příjmení</label>
+         <input type="text"
+                class="form-control"
+                id="prijmeni"
+                name="prijmeni"
+                placeholder="Zadejte příjmení"
+         />
+     </div>
+        <div class="form-group">
+         <label for="datum_narozeni">Datum narození</label>
+         <input type="date"
+                class="form-control"
+                id="datum_narozeni"
+                name="datum_narozeni"
+         />
+     </div>
+    <div class="form-group">
+         <label for="heslo1">Heslo</label>
+         <input type="password"
+                class="form-control"
+                id="heslo1"
+                name="heslo1"
+                placeholder="Zadejte heslo"
+         />
+     </div>
+     <div class="form-group">
+         <label for="heslo2">Potvrzení hesla</label>
+         <input type="password"
+                class="form-control"
+                id="heslo2"
+                name="heslo2"
+                placeholder="Potvrďte heslo"
+         />
+     </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Registrovat se</button>
+    <br />
+    <hr>
+    Již máte účet?
+    <br />
+    <a href="/sign-up" class="btn btn-secondary">Přihlásit se</a>
+</form>
+{% endblock %}

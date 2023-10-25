@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} Upravit pojištěnce {% endblock %}
+{% block content %}
+<div style="margin-top:50px;">
+<h1>Upravit pojištěnce</h1>
+<form action="{{ url_for('views.upravit_pojistence', id=pojistenec.id) }}" method="POST" style="margin-top:25px;">
+    <label for="jmeno">Jméno:</label>
+    <input type="text" id="jmeno" name="jmeno" class="form-control" value="{{ pojistenec.jmeno }}">
+    <br>
+    <label for="prijmeni">Přijmení:</label>
+    <input type="text" id="prijmeni" name="prijmeni" class="form-control" value="{{ pojistenec.prijmeni }}">
+    <br>
+    <label for="datum_narozeni">Datum narození:</label>
+    <input type="date" id="datum_narozeni" name="datum_narozeni" class="form-control" value="{{ pojistenec.datum_narozeni }}">
+    <br>
+    <label for="telefon">Telefon:</label>
+    <input type="text" id="telefon" name="telefon" class="form-control" value="{{ pojistenec.telefon }}">
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" class="form-control" value="{{ pojistenec.email }}">
+    <br>
+    <label for="ulice">Ulice:</label>
+    <input type="text" id="ulice" name="ulice" class="form-control" value="{{ pojistenec.ulice }}">
+    <br>
+    <label for="cp">Číslo popisné a orientační:</label>
+    <input type="text" id="cp" name="cp" class="form-control" value="{{ pojistenec.cp }}">
+    <br>
+    <label for="mesto">Město:</label>
+    <input type="text" id="mesto" name="mesto" class="form-control" value="{{ pojistenec.mesto }}">
+    <br>
+    <label for="psc">PSČ:</label>
+    <input type="text" id="psc" name="psc" class="form-control" value="{{ pojistenec.psc }}">
+    <br>
+    <div style="text-align:center;">
+    <input type="submit" class="btn btn-primary" value="Uložit">
+    </div>
+</form>
+</div>
+{% endblock %}

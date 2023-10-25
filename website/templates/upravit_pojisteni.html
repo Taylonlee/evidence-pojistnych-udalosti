@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %} Upravit pojištění {% endblock %}
+{% block content %}
+<div style="margin-top:50px;">
+
+<h1>Upravit pojištění k {{ pojistenec.jmeno }} {{ pojistenec.prijmeni }}</h1>
+
+</div>
+<form style="margin-top:20px;" method="POST" action="{{ url_for('views.upravit_pojisteni', client_id=pojistenec.id, pojisteni_id=pojisteni.id) }}">
+    <div class="form-group">
+        <label for="nazev">Pojištění</label>
+        <select class="form-control bg-light text-dark" name="nazev" id="nazev">
+            <option value="Pojištění majetku">Pojištění majetku</option>
+            <option value="Povinné ručení">Povinné ručení</option>
+            <option value="Havarijní pojištění">Havarijní pojištění</option>
+            <option value="Cestovní pojištění">Cestovní pojištění</option>
+            <option value="Životní pojištění">Životní pojištění</option>
+        </select>
+
+    </div>
+        <div class="form-group">
+        <label for="castka">Částka</label>
+        <input type="number"
+               id="castka"
+               name="castka"
+               class="form-control"
+               value="{{ pojisteni.castka }}"
+        />
+        </div>
+
+        <div class="form-group">
+        <label for="predmet">Předmět pojištění</label>
+        <input type="text"
+               id="predmet"
+               name="predmet"
+               class="form-control"
+               value="{{ pojisteni.predmet }}"
+        />
+        </div>
+
+        <div class="form-group">
+        <label for="platnost_od">Platnost od</label>
+        <input type="date"
+               id="platnost_od"
+               name="platnost_od"
+               class="form-control"
+               value="{{ pojisteni.platnost_od }}"
+        />
+        </div>
+
+        <div class="form-group">
+        <label>Platnost do</label>
+        <input type="date"
+               name="platnost_do"
+               class="form-control"
+               value="{{ pojisteni.platnost_do }}"
+        />
+        </div>
+    <div style="text-align:center;">
+    <button type="submit" class="btn btn-primary">Uložit</button>
+    </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} Pojištěnci {% endblock %}
+{% block content %}
+<br><h1>Pojištěnci</h1>
+<div style="text-align:center;">
+    <a href="http://127.0.0.1:5000/pojisteni-app/pojistenci/novy" class="btn btn-primary">Nový pojištěnec</a>
+</div>
+
+<table border="1" style="margin-top:30px; margin-right:100px;" width="100%">
+    <thead>
+    <tr>
+        <th>Jméno</th>
+        <th>Bydliště</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for pojistenec in pojistenci %}
+        <tr>
+            <td style="padding: 10px; color:blue; text-decoration:underline;">
+                <a href="/pojisteni-app/pojistenci/detail/{{ pojistenec.id }}">{{ pojistenec.jmeno }} {{ pojistenec.prijmeni }}</a>
+            </td>
+            <td style="padding: 10px;">
+                {{ pojistenec.ulice }} {{ pojistenec.cp }}, {{ pojistenec.mesto }}, {{ pojistenec.psc }}
+            </td>
+            <td>
+                <!-- Tlačítko pro editaci pojištěnce -->
+                <a href="{{ url_for('views.upravit_pojistence', id=pojistenec.id) }}" class="btn btn-warning">Editovat</a>
+                <!-- Tlačítko pro smazání pojištěnce -->
+                <form action="{{ url_for('views.smazat_pojistence', id=pojistenec.id) }}" method="POST">
+                    <input type="submit" value="Smazat" class="btn btn-danger">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{{ pagination.links }}
+
+{% endblock %}

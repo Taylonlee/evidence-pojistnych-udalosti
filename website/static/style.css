@@ -1,0 +1,25 @@
+body {
+    overflow: visible;
+    margin-bottom: 100px;
+}
+
+tr th {
+    padding-left:10px;
+}
+
+tr td a {
+    display: inline-block;
+}
+
+tr td form {
+    display: inline-block;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

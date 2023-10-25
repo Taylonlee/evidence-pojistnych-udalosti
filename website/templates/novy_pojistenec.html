@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %} Nový pojištěnec {% endblock %}
+{% block content %}
+<div style="margin-top:80px;">
+<h1>Nový pojištěnec</h1>
+</div>
+<form method="POST">
+    <div class="form-group" style="margin-top:25px;">
+        <label>Jméno</label>
+        <input type="text"
+               name="jmeno"
+               class="form-control"
+               placeholder="Jan"
+        />
+    </div>
+    <div class="form-group">
+        <label>Přijmení</label>
+        <input type="text"
+               name="prijmeni"
+               class="form-control"
+               placeholder="Novák"
+        />
+    </div>
+    <div class="form-group">
+        <label>Datum narození</label>
+        <input type="date"
+               name="datum_narozeni"
+               class="form-control"
+
+        />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text"
+               name="email"
+               class="form-control"
+               placeholder="jan.novak@seznam.cz"
+        />
+    </div>
+    <div class="form-group">
+        <label>Telefon</label>
+        <input type="text"
+               name="telefon"
+               class="form-control"
+               placeholder="123456789"
+        />
+    </div>
+    <div class="form-group">
+        <label>Ulice</label>
+        <input type="text"
+               name="ulice"
+               class="form-control"
+               placeholder="Ve Svahu"
+        />
+    </div>
+    <div class="form-group">
+        <label>Číslo popisné a orientační</label>
+        <input type="text"
+               name="cp"
+               class="form-control"
+               placeholder="391/16"
+        />
+    </div>
+    <div class="form-group">
+        <label>Město</label>
+        <input type="text"
+               name="mesto"
+               class="form-control"
+               placeholder="Praha 1"
+        />
+    </div>
+    <div class="form-group">
+        <label>PSČ</label>
+        <input type="text"
+               name="psc"
+               class="form-control"
+               placeholder="100 00"
+        />
+    </div>
+    <div style="text-align:center;">
+    <button type="submit" class="btn btn-primary">Uložit</button>
+    </div>
+</form>
+{% endblock %}

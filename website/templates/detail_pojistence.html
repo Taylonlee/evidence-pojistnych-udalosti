@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %} Detail pojištěnce {% endblock %}
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <td><img src="/static/profil.png" alt="profilový obrázek"></td>
+            <td>
+                <h2>{{ pojistenec.jmeno }} {{pojistenec.prijmeni }}</h2>
+                <table>
+                    <tr>
+                        <td>{{ pojistenec.ulice }} {{ pojistenec.cp }}</td>
+                        <td style="width:250px;"></td>
+                        <td>{{ pojistenec.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ pojistenec.mesto }}</td>
+                        <td></td>
+                        <td>{{ pojistenec.telefon }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ pojistenec.psc }}</td>
+                        <td></td>
+                        <td>{{ pojistenec.datum_narozeni }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="margin-top:10px; padding-left:60px;">
+<h3>Sjednaná pojištění</h3>
+<table border="1" style="margin-top:30px; margin-right:100px;" width="100%">
+    <thead>
+    <tr>
+        <th>Pojištění</th>
+        <th>Částka</th>
+        <th></th>
+    </tr>
+    </thead>
+    {% if pojisteni_list %}
+    {% for pojisteni in pojisteni_list %}
+    <tr>
+        <td style="padding: 10px; color:blue; text-decoration:underline;">{{ pojisteni.nazev }}</td>
+        <td style="padding: 10px;">{{ pojisteni.castka }} Kč</td>
+         <td>
+            <!-- Tlačítko pro editaci pojištění -->
+            <a href="{{ url_for('views.upravit_pojisteni', client_id=pojistenec.id, pojisteni_id=pojisteni.id) }}" class="btn btn-warning">Editovat</a>
+            <!-- Tlačítko pro smazání pojištění -->
+            <form action="{{ url_for('views.smazat_pojisteni', id=pojisteni.id) }}" method="POST">
+                <input type="submit" value="Smazat" class="btn btn-danger">
+            </form>
+         </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+        <td colspan="3" style="text-align:center;">Žadné pojištění nebylo sjednáno.</td>
+    </tr>
+    {% endif %}
+</table>
+</div>
+<div style="text-align:center; margin-top:250px;">
+    <a href="{{ url_for('views.pridat_pojisteni', id=pojistenec.id) }}" class="btn btn-primary"
+                style="display: inline-block;">Přidat pojištění</a>
+    <a href="{{ url_for('views.upravit_pojistence', id=pojistenec.id,
+                return_url=url_for('views.detail_pojistence', id=pojistenec.id)) }}" class="btn btn-warning"
+               style="display: inline-block;">Editovat pojištěnce</a>
+            <!-- Tlačítko pro smazání pojištěnce -->
+    <form action="{{ url_for('views.smazat_pojistence', id=pojistenec.id) }}" method="POST"
+          style="display: inline-block;">
+          <input type="submit" value="Smazat pojištěnce" class="btn btn-danger">
+    </form>
+</div>
+{% endblock %}
